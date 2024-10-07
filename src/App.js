@@ -53,13 +53,8 @@ import NavBar from "./layout.js/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Chat from "./component/Chat";
 import ChatList from "./component/Chatlist";
-import swDev from "./swDev";
 
 function App() {
-  useEffect(() => {
-    swDev(); // Call to service worker setup
-}, []);
-
   // const [installPrompt, setInstallPrompt] = useState(null);
 
   // useEffect(() => {
@@ -158,11 +153,10 @@ function App() {
           </Routes>
         </div>
       </Router>
-      <div>
-            <h1>My PWA with Push Notifications</h1>
-            <button onClick={() => alert('Push Notification will be sent!')}>Send Notification</button>
-        </div>
-
+      <div className="App">
+      <h1>Push Notification Demo</h1>
+      <button onClick={requestNotificationPermission}>Enable Notification</button>
+    </div>
 
     </>
   );
