@@ -11,7 +11,7 @@ const NavBar = () => {
     <Navbar bg="white" variant="light" fixed="top" className="shadow-sm">
       <Container>
         <Navbar.Brand href="/" style={{ fontWeight: 'bold', fontSize: '24px' }}>
-          MyApp
+          MyAsspp
         </Navbar.Brand>
         {/* <Form className="d-flex mx-auto">
           <FormControl
