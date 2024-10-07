@@ -17,6 +17,32 @@ this.addEventListener('install', (event) => {
   );
 });
 
+this.addEventListener('push', function(event) {
+  let data = event.data ? event.data.json() : {};
+
+  const options = {
+    body: data.body || 'You have a new message!',
+    icon: 'icons/icon-192x192.png',  // Add your app icon here
+    badge: 'icons/icon-192x192.png'  // Badge for notifications
+  };
+
+  event.waitUntil(
+    this.registration.showNotification(data.title || 'Notification', options)
+  );
+});
+
+// Handle notification click event
+this.addEventListener('notificationclick', function(event) {
+  event.notification.close();
+  
+  event.waitUntil(
+    // eslint-disable-next-line no-undef
+    clients.openWindow('https://your-website-url.com') // Open your app on click
+  );
+});
+
+
+
 // this.addEventListener('fetch', (event) => {
 //   event.respondWith(
 //     caches.match(event.request).then((cachedResponse) => {
@@ -73,5 +99,25 @@ this.addEventListener('fetch', (event) => {
     caches.match(event.request).then((cachedResponse) => {
       return cachedResponse || fetch(event.request);
     })
+  );
+});
+
+// sw.js (in public folder)
+// this.addEventListener('push', (event) => {
+//   const data = event.data.json();
+//   this.registration.showNotification(data.title, {
+//     body: data.body,
+//     icon: './download (3).jpeg',
+//   });
+// });
+
+
+this.addEventListener('push', function(event) {
+  const options = {
+      body: event.data ? event.data.text() : 'No payload',
+      icon: './download (3).jpeg', // Replace with your icon path
+  };
+  event.waitUntil(
+      this.registration.showNotification('Push Notification', options)
   );
 });
