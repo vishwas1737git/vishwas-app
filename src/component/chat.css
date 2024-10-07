@@ -1,0 +1,18 @@
+/* src/component/ChatMessage.css */
+
+.avatar {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%; /* Circular avatar */
+  }
+  
+  .my-message {
+    background-color: #0095f6; /* Blue background for user's messages */
+    color: white; /* White text for better contrast */
+  }
+  
+  .other-message {
+    background-color: #f1f1f1; /* Light gray background for other user's messages */
+    color: black; /* Black text for better readability */
+  }
+  

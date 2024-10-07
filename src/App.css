@@ -1,0 +1,58 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  border-radius: 0;
+  border: none;
+}
+
+.card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.card img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* src/auth/Auth.css */
+
+.auth-form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.auth-form p {
+  font-size: 14px;
+  color: #888;
+}
+
+.auth-form a {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+}
+
+

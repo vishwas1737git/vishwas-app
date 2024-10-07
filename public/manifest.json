@@ -1,0 +1,20 @@
+{
+  "name": "MyApp",
+  "short_name": "MyApp",
+  "start_url": "/myapp.com",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3",
+  "icons": [
+    {
+      "src": "./download (3).jpeg",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./download (3).jpeg",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
