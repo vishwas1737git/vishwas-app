@@ -93,45 +93,8 @@ function App() {
   //   }
   // };
 
-  useEffect(() => {
-    // Register the service worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register(`${process.env.PUBLIC_URL}/sw.js`).then((registration) => {
-        console.log('Service Worker registered with scope:', registration.scope);
-      });
-    }
-  }, []);
-
-  // Request Notification Permission
-  const requestNotificationPermission = () => {
-    Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        console.log('Notification permission granted.');
-
-        // Show a dummy notification
-        showLocalNotification('Dummy Title', 'This is a dummy notification');
-      }
-    });
-  };
-
-  // Function to show a local notification
-  const showLocalNotification = (title, body) => {
-    if ('serviceWorker' in navigator && 'PushManager' in window) {
-      navigator.serviceWorker.ready.then((registration) => {
-        registration.showNotification(title, {
-          body: body,
-          icon: '/path-to-icon.png',
-        });
-      });
-    } else {
-      console.log('Push messaging is not supported');
-    }
-  };
-
-  
   return (
     <>
-     
       {/* {installPrompt && (
         <button onClick={handleInstallClick}>Install App</button>
       )} */}
@@ -153,11 +116,6 @@ function App() {
           </Routes>
         </div>
       </Router>
-      <div className="App">
-      <h1>Push Notification Demo</h1>
-      <button onClick={requestNotificationPermission}>Enable Notification</button>
-    </div>
-
     </>
   );
 }
