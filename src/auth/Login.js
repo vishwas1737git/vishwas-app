@@ -1,24 +1,76 @@
-// src/auth/Login.js
-
 import React from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import status6 from "./../assets/download (3).jpeg"; // Import your image here
 
 const Login = () => {
   return (
-    <Container className="d-flex flex-column justify-content-center align-items-center vh-100">
-      <h1 className="mb-4" style={{ color: '#333' }}>LOGIN PAGE</h1>
-      <Form className="w-100" style={{ maxWidth: '400px' }}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control type="email" placeholder="Email" required />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control type="password" placeholder="Password" required />
-        </Form.Group>
-        <Button variant="primary" type="submit" className="w-100" style={{ backgroundColor: '#0095f6', borderColor: '#0095f6' }}>
-          Log In
-        </Button>
-      </Form>
-      <p className="mt-4 text-center">Don't have an account? <a href="/signup" style={{ color: '#0095f6' }}>Sign up</a></p>
+    <Container
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        backgroundColor: '#f8f9fa',
+      }}
+    >
+      <Row style={{ width: '100%', justifyContent: 'center' }}>
+        <Col xs={12} md={6} lg={4}>
+          {/* Logo */}
+          <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+            <img
+              src={status6}
+              alt="App Logo"
+              style={{
+                maxWidth: '150px',
+                width: '100%',
+                height: 'auto',
+              }}
+            />
+          </div>
+
+          {/* Login Form */}
+          <Form>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label style={{ fontWeight: 'bold' }}>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                style={{ padding: '0.75rem', borderRadius: '0.25rem' }}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword" style={{ marginTop: '1rem' }}>
+              <Form.Label style={{ fontWeight: 'bold' }}>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                style={{ padding: '0.75rem', borderRadius: '0.25rem' }}
+              />
+            </Form.Group>
+
+            <Button
+              variant="primary"
+              type="submit"
+              style={{
+                width: '100%',
+                marginTop: '1.5rem',
+                padding: '0.75rem',
+                backgroundColor: '#007bff',
+                borderColor: '#007bff',
+                borderRadius: '0.25rem',
+              }}
+            >
+              Login
+            </Button>
+
+            <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+              <a href="#" style={{ color: '#007bff', textDecoration: 'none' }}>
+                Forgot password?
+              </a>
+            </div>
+          </Form>
+        </Col>
+      </Row>
     </Container>
   );
 };

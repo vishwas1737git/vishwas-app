@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import status6 from "./../assets/download (3).jpeg"; // Import your image here
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -15,56 +16,82 @@ function Register() {
   };
 
   return (
-    <Container className="d-flex align-items-center justify-content-center vh-100">
-      <Row className="w-100">
-        <Col md={6} className="mx-auto">
-          <div className="auth-form">
-            <h1 className="text-center mb-4">Sign Up</h1>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="formBasicUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                />
-              </Form.Group>
+    <Container
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: '100vh',
+      backgroundColor: '#f8f9fa',
+    }}
+  >
+    <Row style={{ width: '100%', justifyContent: 'center' }}>
+      <Col xs={12} md={6} lg={4}>
+        {/* Logo */}
+        <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+          <img
+            src={status6}
+            alt="App Logo"
+            style={{
+              maxWidth: '150px',
+              width: '100%',
+              height: 'auto',
+            }}
+          />
+        </div>
 
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </Form.Group>
+        {/* Login Form */}
+        <Form>
+        <Form.Group controlId="formBasicEmail">
+            <Form.Label style={{ fontWeight: 'bold' }}>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Name"
+              style={{ padding: '0.75rem', borderRadius: '0.25rem' }}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label style={{ fontWeight: 'bold' }}>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              style={{ padding: '0.75rem', borderRadius: '0.25rem' }}
+            />
+          </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </Form.Group>
+          <Form.Group controlId="formBasicPassword" style={{ marginTop: '1rem' }}>
+            <Form.Label style={{ fontWeight: 'bold' }}>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              style={{ padding: '0.75rem', borderRadius: '0.25rem' }}
+            />
+          </Form.Group>
 
-              <Button variant="primary" type="submit" className="w-100">
-                Sign Up
-              </Button>
-            </Form>
-            <div className="text-center mt-3">
-              <p>Already have an account? <a href="/login">Log In</a></p>
-            </div>
+          <Button
+            variant="primary"
+            type="submit"
+            style={{
+              width: '100%',
+              marginTop: '1.5rem',
+              padding: '0.75rem',
+              backgroundColor: '#007bff',
+              borderColor: '#007bff',
+              borderRadius: '0.25rem',
+            }}
+          >
+            Login
+          </Button>
+
+          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+            <a href="#" style={{ color: '#007bff', textDecoration: 'none' }}>
+              Forgot password?
+            </a>
           </div>
-        </Col>
-      </Row>
-    </Container>
+        </Form>
+      </Col>
+    </Row>
+  </Container>
   );
 }
 
