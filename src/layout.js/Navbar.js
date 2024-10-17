@@ -6,26 +6,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavBar = () => {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-  console.log("showProfileDropdownshowProfileDropdownshowProfileDropdown",showProfileDropdown)
+  const [longPress, setLongPress] = useState(false); // To track if it's a long press
   let pressTimer;
 
-  const handleMouseDown = () => {
-    // Start a timer when the user presses down on the icon
+  // Common function to handle press start for both mouse and touch
+  const handlePressStart = () => {
+    setLongPress(false); // Reset long press state
+
+    // Start a timer when the user presses down or touches the icon
     pressTimer = setTimeout(() => {
+      setLongPress(true); // Long press detected
       setShowProfileDropdown(true); // Show dropdown after long press
-    }, 500); // 500ms for long press detection
+    }, 500); // 1000ms (1 second) for long press detection
   };
 
-  const handleMouseUp = () => {
-    clearTimeout(pressTimer); // Clear the timer if the mouse is released before 500ms
-    if (!showProfileDropdown) {
-      // Short click, redirect to profile page
+  // Common function to handle press end for both mouse and touch
+  const handlePressEnd = () => {
+    clearTimeout(pressTimer); // Clear the timer if the press or touch is released
+
+    if (!longPress) {
+      // Short click or tap, redirect to profile page
       window.location.href = '/profile';
     }
   };
 
-  const handleMouseLeave = () => {
-    clearTimeout(pressTimer); // Ensure timer is cleared if the user moves the cursor away
+  // Ensure the timer is cleared if the user cancels the press or touch
+  const handlePressCancel = () => {
+    clearTimeout(pressTimer);
   };
 
   const handleDropdownClose = () => {
@@ -44,11 +51,14 @@ const NavBar = () => {
             <Nav.Link href="/"><FaHome size={24} /></Nav.Link>
             <Nav.Link href="/chatlist"><FaFacebookMessenger size={24} /></Nav.Link>
             
-            {/* Profile Icon with click/hold behavior */}
+            {/* Profile Icon with touch/mouse support */}
             <Nav.Link 
-              onMouseDown={handleMouseDown} 
-              onMouseUp={handleMouseUp} 
-              onMouseLeave={handleMouseLeave} 
+              onMouseDown={handlePressStart} 
+              onMouseUp={handlePressEnd}
+              onMouseLeave={handlePressCancel}
+              onTouchStart={handlePressStart}
+              onTouchEnd={handlePressEnd}
+              onTouchCancel={handlePressCancel}
               style={{ cursor: 'pointer' }}>
               <FaUserCircle size={24} />
             </Nav.Link>
