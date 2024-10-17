@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Modal, Image, Container, Button } from "react-bootstrap";
+import { Modal, Image, Container, Button, Nav } from "react-bootstrap";
 import Feed from "./Feed";
 import status1 from "./../assets/status.jpeg";
 import status2 from "./../assets/status2.jpeg";
@@ -8,7 +8,8 @@ import status4 from "./../assets/status4.jpeg";
 import status5 from "./../assets/status5.jpeg";
 import status6 from "./../assets/status6.jpeg";
 import userProfileImage from "./../assets/status6.jpeg";
-import { FaPlus } from "react-icons/fa";
+import { FaFacebookMessenger, FaPlus } from "react-icons/fa";
+// import { Container, Nav, Dropdown } from "react-bootstrap";
 
 const Stories = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,7 +22,7 @@ const Stories = () => {
   const stories = [
     {
       id: 1,
-      username: "john_doe",
+      username: "pallav_bhadva",
       profileImage: status1,
       type: "image",
       mediaUrl: status1,
@@ -149,6 +150,17 @@ const Stories = () => {
 
   return (
     <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          paddingInline: "15px", paddingTop: "10px" 
+        }}
+      >
+        <h2 style={{fontFamily:"cursive"}}>MyApp</h2>
+        <FaFacebookMessenger  color="black" size={24} />
+      </div>
       <Container
         fluid
         className="d-flex overflow-auto mt-3"
@@ -156,7 +168,7 @@ const Stories = () => {
           padding: "10px",
           whiteSpace: "nowrap",
           position: "relative",
-          top: "50px",
+          // top: "50px",
         }}
       >
         {/* Self Story Section */}
@@ -226,7 +238,11 @@ const Stories = () => {
               <div style={{ display: "flex", gap: "10px" }}>
                 <Image
                   src={currentStory.profileImage}
-                  style={{ height: "25px", width: "auto", borderRadius: "100%" }}
+                  style={{
+                    height: "25px",
+                    width: "auto",
+                    borderRadius: "100%",
+                  }}
                 />
                 <Modal.Title>{currentStory.username}</Modal.Title>
               </div>

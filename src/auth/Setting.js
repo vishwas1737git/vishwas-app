@@ -1,30 +1,30 @@
-import {Form, Container, Row, Col, Card, Nav, Button } from 'react-bootstrap';
+import React from "react";
+import { Container, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
+const SettingsPage = () => {
+  const navigate = useNavigate();
 
-const Settings = () => (
-    <Container className="settings-container">
-      <Row className="justify-content-center">
-        <Col md={6}>
-          <Card className="p-4">
-            <h2>Settings</h2>
-            <Form>
-              <Form.Group controlId="formLanguage">
-                <Form.Label>Language</Form.Label>
-                <Form.Control as="select">
-                  <option>English</option>
-                  <option>Spanish</option>
-                </Form.Control>
-              </Form.Group>
-              <Form.Group controlId="formNotifications">
-                <Form.Check type="switch" label="Receive Notifications" />
-              </Form.Group>
-              <Button variant="primary" type="submit" className="w-100">
-                Save Settings
-              </Button>
-            </Form>
-          </Card>
-        </Col>
-      </Row>
+  const handleLogout = () => {
+    // Implement your logout logic here
+    console.log("Logged out");
+    navigate("/login"); // Navigate back to the profile or login page
+  };
+
+  return (
+    <Container style={{ marginTop: "50px", textAlign: "center" }}>
+      <h2>Settings</h2>
+      <Button variant="primary" style={{ margin: "20px" }} onClick={() => alert("Go to Account Settings")}>
+        Account Settings
+      </Button>
+      <Button variant="primary" style={{ margin: "20px" }} onClick={() => alert("Go to Privacy Settings")}>
+        Privacy Settings
+      </Button>
+      <Button variant="danger"  style={{ margin: "20px" }} onClick={handleLogout}>
+        Logout
+      </Button>
     </Container>
   );
-export default Settings  
+};
+
+export default SettingsPage;

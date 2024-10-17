@@ -53,6 +53,8 @@ import NavBar from "./layout.js/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Chat from "./component/Chat";
 import ChatList from "./component/Chatlist";
+import Footer from "./layout.js/Footer";
+import SettingsPage from "./auth/Setting";
 
 function App() {
   // const [installPrompt, setInstallPrompt] = useState(null);
@@ -104,10 +106,12 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Register />} />
-            <Route path="*" element={<NavBar />} />
+            {/* <Route path="*" element={<NavBar />} /> */}
+            <Route path="*" element={<Footer />} />
           </Routes>
 
           <Routes>
+            <Route path="/SettingsPage" element={<SettingsPage />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/" element={<Stories />} />

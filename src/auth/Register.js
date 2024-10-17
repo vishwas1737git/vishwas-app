@@ -84,6 +84,12 @@ function Register() {
           </Button>
 
           <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+              <span>Already have an account?</span>
+              <a href="/login" style={{ color: '#007bff', textDecoration: 'none' }}>
+                {" "}Sign In
+              </a>
+            </div>
+          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
             <a href="#" style={{ color: '#007bff', textDecoration: 'none' }}>
               Forgot password?
             </a>

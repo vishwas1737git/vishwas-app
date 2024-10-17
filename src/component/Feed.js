@@ -87,7 +87,7 @@ const Feed = () => {
     
 
   return (
-    <Container className="mt-5 pt-4">
+    <Container >
       {posts.map((post) => (
         <Card className="mb-4" key={post.id}>
           <Card.Header className="d-flex align-items-center">

@@ -64,6 +64,12 @@ const Login = () => {
             </Button>
 
             <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+              <span>Don't have an account?</span>
+              <a href="/signup" style={{ color: '#007bff', textDecoration: 'none' }}>
+                {" "}Sign Up
+              </a>
+            </div>
+            <div style={{ textAlign: 'center', marginTop: '1rem' }}>
               <a href="#" style={{ color: '#007bff', textDecoration: 'none' }}>
                 Forgot password?
               </a>
