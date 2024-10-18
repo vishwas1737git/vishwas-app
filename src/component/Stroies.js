@@ -9,6 +9,7 @@ import status5 from "./../assets/status5.jpeg";
 import status6 from "./../assets/status6.jpeg";
 import userProfileImage from "./../assets/status6.jpeg";
 import { FaFacebookMessenger, FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 // import { Container, Nav, Dropdown } from "react-bootstrap";
 
 const Stories = () => {
@@ -155,11 +156,15 @@ const Stories = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          paddingInline: "15px", paddingTop: "10px" 
+          paddingInline: "15px",
+          paddingTop: "10px",
         }}
       >
-        <h2 style={{fontFamily:"cursive"}}>MyApp</h2>
-        <FaFacebookMessenger  color="black" size={24} />
+        <h2 style={{ fontFamily: "cursive" }}>MyApp</h2>
+        <Link to={"/chatlist"}>
+          {" "}
+          <FaFacebookMessenger color="black" size={24} />
+        </Link>
       </div>
       <Container
         fluid

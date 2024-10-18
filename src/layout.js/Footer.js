@@ -5,24 +5,25 @@ import { ImSearch } from "react-icons/im";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { IoLogoYoutube } from "react-icons/io";
 import { RiAddBoxFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-  const [longPress, setLongPress] = useState(false); 
+  const [longPress, setLongPress] = useState(false);
   let pressTimer;
 
   const handlePressStart = () => {
-    setLongPress(false); 
+    setLongPress(false);
     pressTimer = setTimeout(() => {
-      setLongPress(true); 
-      setShowProfileDropdown(true); 
-    }, 500); 
+      setLongPress(true);
+      setShowProfileDropdown(true);
+    }, 500);
   };
 
   const handlePressEnd = () => {
-    clearTimeout(pressTimer); 
+    clearTimeout(pressTimer);
     if (!longPress) {
-      window.location.href = "/profile"; 
+      window.location.href = "/profile";
     }
   };
 
@@ -38,20 +39,22 @@ const Footer = () => {
     <>
       <Navbar bg="white" variant="light" fixed="bottom" className="shadow-sm">
         <Container>
-          <Nav className="mx-auto" style={{display:"contents"}}> {/* Centering icons */}
-            <Nav.Link href="/">
-              <FaHome size={24} />
-            </Nav.Link>
-            <Nav.Link href="#">
-              <ImSearch size={24} />
-            </Nav.Link>
-            <Nav.Link href="/chatlist">
-              <RiAddBoxFill size={26} />
-            </Nav.Link>
-            <Nav.Link href="/chatlist">
-              <IoLogoYoutube size={26} />
-            </Nav.Link>
-            <Nav.Link
+          <Nav className="mx-auto" style={{ display: "contents" }}>
+            {" "}
+            {/* Centering icons */}
+            <Link to="/">
+              <FaHome color="black" size={24} />
+            </Link>
+            <Link to="#">
+              <ImSearch color="black" size={24} />
+            </Link>
+            <Link to="/chatlist">
+              <RiAddBoxFill color="black" size={26} />
+            </Link>
+            <Link to="/chatlist">
+              <IoLogoYoutube color="black" size={26} />
+            </Link>
+            <Link
               onMouseDown={handlePressStart}
               onMouseUp={handlePressEnd}
               onMouseLeave={handlePressCancel}
@@ -60,8 +63,8 @@ const Footer = () => {
               onTouchCancel={handlePressCancel}
               style={{ cursor: "pointer" }}
             >
-              <FaUserCircle size={24} />
-            </Nav.Link>
+              <FaUserCircle color="black" size={24} />
+            </Link>
           </Nav>
         </Container>
       </Navbar>

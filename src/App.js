@@ -55,6 +55,7 @@ import Chat from "./component/Chat";
 import ChatList from "./component/Chatlist";
 import Footer from "./layout.js/Footer";
 import SettingsPage from "./auth/Setting";
+import UserProfileBio from "./auth/UpdateProfile";
 
 function App() {
   // const [installPrompt, setInstallPrompt] = useState(null);
@@ -117,6 +118,8 @@ function App() {
             <Route path="/" element={<Stories />} />
             <Route path="/messages" element={<Chat />} />
             <Route path="/chatlist" element={<ChatList />} />
+            <Route path="/update-profile" element={<UserProfileBio />} />
+
           </Routes>
         </div>
       </Router>

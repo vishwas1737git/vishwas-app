@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Container,
   Row,
@@ -18,8 +18,26 @@ import highlights5 from "./../assets/status5.jpeg";
 import highlights6 from "./../assets/status6.jpeg";
 import userProfile from "./../assets/download (2).jpeg";
 import { MdOutlineStorage } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userPofileAction } from "../redux/Action/AuthAction";
 
 const Profile = () => {
+  const dispatch = useDispatch();
+
+  const { profileLoader, profileSuccess, profileError } = useSelector(
+    (state) => state.user
+  );
+
+  console.log(
+    "profileSuccessprofileSuccessprofileSuccessprofileSuccessprofileSuccess>>>>>>>>>>>>>",
+    profileSuccess
+  );
+
+  useEffect(() => {
+    dispatch(userPofileAction());
+  }, []);
+
   return (
     <>
       <div
@@ -31,10 +49,10 @@ const Profile = () => {
           paddingTop: "10px",
         }}
       >
-        <h2>john_doe</h2>
-        <Nav.Link href="/SettingsPage">
+        <h2>{profileSuccess?.username}</h2>
+        <Link to="/SettingsPage">
           <MdOutlineStorage color="black" size={24} />
-        </Nav.Link>
+        </Link>
       </div>
 
       <Container>
@@ -69,15 +87,28 @@ const Profile = () => {
 
             {/* Bio Section */}
             <div style={{ textAlign: "left", padding: "0 15px" }}>
-              <strong>John Doe</strong>
-              <p>
-                Passionate traveler. Food lover. Photography enthusiast.
-                Exploring the world one step at a time.
-              </p>
-              <p>📍 New York City</p>
-              <p>📧 john.doe@email.com</p>
+              <strong>{profileSuccess?.username}</strong>
+              <p>{profileSuccess?.bio}</p>
+              <p>{profileSuccess?.location}</p>
+              <p>{profileSuccess?.emailContact}com</p>
             </div>
-
+            <button
+              className="btn"
+              style={{
+                backgroundColor: "black",
+                textDecoration: "none",
+              }}
+            >
+              <Link
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+                }}
+                to={"/update-profile"}
+              >
+                Edit profile
+              </Link>
+            </button>
             {/* Posts Grid */}
             <Row className="mt-4">
               <Col xs={4}>
